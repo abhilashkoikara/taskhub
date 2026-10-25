@@ -1,0 +1,21 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskhub
+    username: taskhub
+    password: taskhub
+  jpa:
+    properties:
+      hibernate.default_schema: users
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    schemas: users
+    default-schema: users
+    create-schemas: true
+jwt:
+  secret: ${JWT_SECRET:dev-only-secret-change-me-dev-only-secret-change-me}
+  ttl-minutes: 120
